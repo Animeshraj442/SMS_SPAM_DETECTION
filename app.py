@@ -1,3 +1,20 @@
+import nltk
+import os
+
+nltk_data_dir = os.path.join(os.path.dirname(__file__), "nltk_data")
+if not os.path.exists(nltk_data_dir):
+    os.makedirs(nltk_data_dir, exist_ok=True)
+
+nltk.data.path.append(nltk_data_dir)
+
+# Download required packages if missing
+for resource in ["punkt", "punkt_tab", "stopwords"]:
+    try:
+        nltk.data.find(resource)
+    except LookupError:
+        nltk.download(resource, download_dir=nltk_data_dir)
+
+
 import streamlit as st
 import pickle
 import string
@@ -8,6 +25,8 @@ from nltk.stem.porter import PorterStemmer
 # Download NLTK data
 nltk.download('punkt')
 nltk.download('stopwords')
+nltk.download('punkt_tab')
+
 
 ps = PorterStemmer()
 
