@@ -1,0 +1,11 @@
+.idea/
+_pycache_/
+.venv/
+venv/
+env/
+# Ignore Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Ignore system files
+.DS_Store
+Thumbs.db
